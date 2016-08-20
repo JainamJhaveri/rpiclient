@@ -1,9 +1,16 @@
 {
   "name": "rpi",
   "version": "1.0.0",
+  "description": "node client for rpi",
+  "main": "node_receiver.js",
   "dependencies": {
     "express": "latest",
     "socket.io": "latest",
     "pubnub": "latest"
-  }
+  },
+  "scripts": {
+    "test": "t",
+    "start": "node node_receiver.js"
+  },
+  "license": "ISC"
 }

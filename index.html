@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data fetching from raspberry pi</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script>
+        function addTableRow(val) {
+            var table = document.getElementById("myTable");
+            var new_row = table.rows[1].cloneNode(true);
+            new_row.cells[0].innerHTML = val;
+            new_row.cells[1].innerHTML = new Date();
+            table.appendChild(new_row);
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        $(document).ready(function () {
+            var socket = io();
+            socket.on('event_latest', function (val) {
+                addTableRow(val);
+            });
+        });
+    </script>
+
+</head>
+<body>
+<br/>
+
+<div class="table-title" align="center">
+    <h3>Data Table</h3>
+</div>
+<table id="myTable" border="1" cellpadding="10" align="center">
+    <thead>
+    <tr>
+        <th>Value</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td> 0 </td>
+        <td>Fri Aug 19 2016 01:43:59 GMT+0530 (IST)</td>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "rpi",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest",
+    "socket.io": "latest",
+    "pubnub": "latest"
+  }
+}
